@@ -11,7 +11,7 @@ class PhoneBook
 	//	PhoneBook();
 		void _ADD_(void);
 		void _SEARCH_(void);
-	//	void _exit_(void);
+		void _exit_(void);
 	//	~PhoneBook();
 };
 /*

@@ -12,9 +12,9 @@ private:
 	std::string	darkest_secret;
 public:
 //	Contact();
-//	void SetContact();
+	void SetContact();
 	void displaycontact();
-//	void GetContactInput(char *field_info);
+	void GetContactInput(std::string  &type, const char *field_info);
 //	~Contact();
 };
 /*
