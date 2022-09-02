@@ -11,19 +11,10 @@ private:
 	std::string	phone_number;
 	std::string	darkest_secret;
 public:
-//	Contact();
-	void SetContact();
-	void displaycontact();
-	void GetContactInput(std::string  &type, const char *field_info);
-//	~Contact();
+	int	 SetContact();
+	void displaycontact(int index);
+	void DisplayMyAllInfo(void);
+	int	 GetContactInput(std::string  &type, const char *field_info);
 };
-/*
-Contact::Contact()
-{
-}
-
-Contact::~Contact()
-{
-}*/
 
 #endif

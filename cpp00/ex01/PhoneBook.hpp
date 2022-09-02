@@ -1,27 +1,16 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 #include "Contact.hpp"
-
+#include <iostream>
 class PhoneBook
 {
 	private:
-		unsigned int i;
+		unsigned int member_count;
 		Contact contacts[8];
 	public:
-	//	PhoneBook();
-		void _ADD_(void);
+		int	 _ADD_(void);
 		void _SEARCH_(void);
-		void _exit_(void);
-	//	~PhoneBook();
+		void displayall(void);
 };
-/*
-PhoneBook::PhoneBook()
-{
-	i = 0;
-}
-
-PhoneBook::~PhoneBook()
-{
-}*/
 
 #endif

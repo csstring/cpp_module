@@ -7,16 +7,19 @@ int main(void)
 {
 	std::string	temp;
 	PhoneBook	book;
-
-	while (!std::cin.rdstate())
+	int			cin_flag = 1;
+	
+	while (!std::cin.rdstate() && cin_flag)
 	{
 		std::cout << "input option : ADD, SEARCH, EXIT" << std::endl;
+		temp.clear();
 		std::getline (std::cin,temp);
 		if (temp.compare("ADD") == 0)
-			book._ADD_();
+			cin_flag = book._ADD_();
 		else if (temp.compare("SEARCH") == 0)
 			book._SEARCH_();
 		else if (temp.compare("EXIT") == 0)
-			std::cout << "EXIT" << std::endl;
+			break ;
 	}
+	return (0);
 }
