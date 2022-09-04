@@ -30,10 +30,15 @@ void Account::displayAccountsInfos(void)
 		";total:"<<getTotalAmount()<<";deposits:"<<\
 		getNbDeposits()<<";withdrawals:"<<getNbWithdrawals()<<std::endl;
 }
-//fix
+
 Account::Account( void )
 {
-
+	_amount = 0;
+	_totalAmount += _amount;
+	_accountIndex = _nbAccounts;
+	_nbAccounts++;
+	std::cout << "[19920104_091532] index:" << _accountIndex << ";amount:" \
+	<<_amount << ";created" << std::endl;	
 }
 
 Account::Account(int initial_deposit)
