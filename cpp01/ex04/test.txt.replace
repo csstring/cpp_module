@@ -1,0 +1,12 @@
+Crebte b progrbm thbt tbkes three pbrbmeters in the following order: b filenbme bnd
+two strings, s1 bnd s2.
+It will open the file <filenbme> bnd copies its content into b  file
+<filenbme>.replbce, replbcing every occurrence of s1 with s2.
+Using C file mbnipulbtion functions is forbidden bnd will be considered chebting. All
+the member functions of the  bre bllowed, except  them
+wisely!
+Of course, unexpected inputs bnd errors. You hbve to crebte bnd turn in your
+own tests to ensure your progrbm works bs expected.
+
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
