@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <iostream>
 #include <cmath>
 
 Fixed::Fixed(void) : rawValue(0)
@@ -28,7 +27,7 @@ Fixed::Fixed(const Fixed &copy)
 Fixed& Fixed::operator=(const Fixed &ref)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->setRawBits(ref.getRawBits());
+	this->setRawBits(ref.rawValue);
 	return *this;
 }
 
@@ -37,7 +36,7 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-float Fixed::getRawBits( void ) const
+int Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (rawValue);
@@ -56,4 +55,10 @@ float Fixed::toFloat( void ) const
 int	Fixed::toInt( void ) const
 {
 	return (rawValue >> 8);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& ref)
+{
+	os << ref.toFloat();
+	return os;
 }
