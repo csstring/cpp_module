@@ -12,6 +12,11 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 	std::cout << "(name) constructor called : name is:" << name << std::endl;
 }
 
+ClapTrap::ClapTrap(std::string name, unsigned int hitPoints) : name(name), hitPoints(hitPoints), energyPoints(10), attackDamage(0)
+{
+	std::cout << "(name) constructor called : name is:" << name << std::endl;
+}
+
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	*this = copy;
