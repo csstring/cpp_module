@@ -114,7 +114,7 @@ unsigned int ClapTrap::getEnergyPoints(void) const
 }
 std::string ClapTrap::getName(void) const
 {
-	return (name);
+	return (this->name);
 }
 
 void ClapTrap::setHitPoints(unsigned int amount)
@@ -134,5 +134,5 @@ void ClapTrap::setEnergyPoints(unsigned int amount)
 
 void ClapTrap::setName(std::string name)
 {
-	name.assign(name);
+	this->name.assign(name);
 }

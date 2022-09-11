@@ -1,14 +1,14 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include "climits"
 
 int main(void)
 {
-	ScavTrap a("schoe");
-	ScavTrap b("Songpyeon");
+	FragTrap a("schoe");
+	FragTrap b("Songpyeon");
 
-	for (int i = 0; i <100 ; i++)
-		a.beRepaired(1);
+	a.beRepaired(1);
 	a.attack("Songpyeon");
 	b.takeDamage(10000000);
 	b.beRepaired(1);
@@ -19,5 +19,6 @@ int main(void)
 	a.attack("Songpyeon");
 	b.takeDamage(a.getAttackDamage());
 	a.beRepaired(100);
+	a.highFivesGuys();
 	return (0);
 }
