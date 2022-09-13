@@ -15,38 +15,15 @@ private:
 public:
 	Form();
 	Form(std::string name, const int requireSign, const int executeSign);
-	From(const Form& copy);
-	Form& operator=(const From& ref);
-	std::string getName();
-	bool getIndicateSigned();
-	int	getRequireSign();
-	int getExecuteSign();
+	Form(const Form& copy);
+	Form& operator=(const Form& ref);
+	std::string getName() const;
+	bool getIndicateSigned() const;
+	int	getRequireSign() const;
+	int getExecuteSign() const;
 	~Form();
-	void incrementGrade() throw(GradeTooHighException);
-	void decrementGrade() throw(GradeTooLowException);
-	beSigned(const Bureaucrat& ref); 
-	//It changes the form status to signed if the bureaucrat’s grade is high enough 
-	//(higher or egal to the required one
-	class GradeTooHighException : public std::exception
-	{
-	public:
-		virtual ~GradeTooHighException() throw()
-		{}
-  		virtual const char* what() const throw() {
-			return ("GradeTooHigh!!\n");
-		}
-	};
-	class GradeTooLowException : public std::exception
-	{
-	public:
-		virtual ~GradeTooLowException() throw()
-		{}
-  		virtual const char* what() const throw() {
-			return ("GradeTooLow!!\n");
-		}
-	};
+	void beSigned(const Bureaucrat& ref) throw(Bureaucrat::GradeTooLowException);
 };
 
-std::ostream& operator<<(std::ostream& os, const From& ref);
-
+std::ostream& operator<<(std::ostream& os, const Form& ref);
 #endif
