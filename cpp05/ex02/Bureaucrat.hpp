@@ -20,6 +20,7 @@ public:
 	int	getgrade() const;
 	void incrementGrade() throw(GradeTooHighException);
 	void decrementGrade() throw(GradeTooLowException);
+	void executeForm(Form const & form);
 	void signForm(Form &form);
 	class GradeTooHighException : public std::exception
 	{
@@ -27,7 +28,7 @@ public:
 		virtual ~GradeTooHighException() throw()
 		{}
   		virtual const char* what() const throw() {
-			return ("GradeTooHigh!!\n");
+			return ("GradeTooHigh!!");
 		}
 	};
 	class GradeTooLowException : public std::exception
@@ -36,7 +37,7 @@ public:
 		virtual ~GradeTooLowException() throw()
 		{}
   		virtual const char* what() const throw() {
-			return ("GradeTooLow!!\n");
+			return ("GradeTooLow!!");
 		}
 	};
 };

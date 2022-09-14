@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Unknown"), grade(150)
 {}
@@ -59,8 +60,29 @@ void Bureaucrat::signForm(Form &form)
 		form.beSigned(*this);
 		std::cout << getName() << " signed " << form.getName() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(std::exception& GradeTooLowException)
 	{
-		std::cout << getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << getName() << " couldn't sign " << form.getName() << " because " << GradeTooLowException.what() << std::endl;
 	}	
+}
+
+void Bureaucrat::executeForm(const Form& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name <<" executed " << form.getName() << std::endl;
+	}
+	catch(ShrubberyCreationForm::InOutFileException& InOutFileException)
+	{
+		std::cout << InOutFileException.what() << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException& GradeTooLowException)
+	{
+		std::cout << GradeTooLowException.what() << std::endl;
+	}
+	catch(std::exception &output)
+	{
+		std::cout << output.what() << std::endl;
+	}
 }

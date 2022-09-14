@@ -4,7 +4,7 @@
 #include <exception>
 #include <iostream>
 #include "Bureaucrat.hpp"
-
+//class Bureaucrat;
 class Form
 {
 private:
@@ -21,9 +21,16 @@ public:
 	bool getIndicateSigned() const;
 	int	getRequireSign() const;
 	int getExecuteSign() const;
+	void setName(const Form& ref);
+	void setIndicateSigned(const Form& ref);
+	void setRequireSign(const Form& ref);
+	void setExecuteSign(const Form& ref);
+	virtual void execute(Bureaucrat const & executor) const = 0;
 	~Form();
 	void beSigned(Bureaucrat& ref) throw(Bureaucrat::GradeTooLowException);
+	void beExecuteCheck(const Bureaucrat& executor) const throw(Bureaucrat::GradeTooLowException);
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& ref);
+
 #endif
