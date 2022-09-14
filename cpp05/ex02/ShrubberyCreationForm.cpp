@@ -50,25 +50,17 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
-void ShrubberyCreationForm::printTree(std::string target) const
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const throw(InOutFileException, Bureaucrat::GradeTooLowException)
 {
 	std::string temp;
 	std::fstream o_file;
 
-    temp.assign(target);
+  beExecuteCheck(executor);
+  temp.assign(getName());
 	temp.append("_shrubbery");
-    o_file.open("test.txt", std::fstream::out | std::fstream::trunc);
-    if (!o_file.fail())
-    {
-        std::cout << "out file open error" << std::endl;
-        throw (InOutFileException());
-    }
+  o_file.open(temp, std::fstream::out | std::fstream::trunc);
+  if (o_file.fail())
+    throw (InOutFileException());
 	o_file << asciiTree << std::endl;
 	o_file.close();
-}
-
-void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
-{(void)executor;
-	//beExecuteCheck(executor);
-	printTree(getName());
 }

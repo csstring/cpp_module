@@ -6,10 +6,11 @@ class RobotomyRequestForm : public Form
 {
 public:
 	RobotomyRequestForm();
-	RobotomyRequestForm(Form target);
+	RobotomyRequestForm(std::string target);
 	RobotomyRequestForm(const RobotomyRequestForm& copy);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& ref);
 	~RobotomyRequestForm();
+	void execute(Bureaucrat const& executor) const throw(Bureaucrat::GradeTooLowException);
 };
 
 #endif

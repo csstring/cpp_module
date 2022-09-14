@@ -81,8 +81,4 @@ void Bureaucrat::executeForm(const Form& form)
 	{
 		std::cout << GradeTooLowException.what() << std::endl;
 	}
-	catch(std::exception &output)
-	{
-		std::cout << output.what() << std::endl;
-	}
 }

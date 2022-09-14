@@ -13,8 +13,7 @@ public:
 	ShrubberyCreationForm(const ShrubberyCreationForm& copy);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& ref);
 	~ShrubberyCreationForm();
-	void execute(Bureaucrat const& executor) const;
-	void printTree(std::string target) const;
+	void execute(Bureaucrat const& executor) const throw(InOutFileException, Bureaucrat::GradeTooLowException);
 	class InOutFileException : public std::exception
 	{
 	public:

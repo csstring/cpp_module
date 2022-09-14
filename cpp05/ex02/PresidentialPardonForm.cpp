@@ -2,7 +2,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : Form()
 {}
-PresidentialPardonForm::PresidentialPardonForm(Form target) : Form(target.getName(), 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target, 25, 5)
 {}
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy)
 {
@@ -10,11 +10,17 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cop
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& ref)
 {
-	this->setName(ref.getName());
-	this->setIndicateSigned(ref.getIndicateSigned());
-	this->setRequireSign(ref.getRequireSign());
-	this->setExecuteSign(ref.getExecuteSign());
+	this->setName(ref);
+	this->setIndicateSigned(ref);
+	this->setRequireSign(ref);
+	this->setExecuteSign(ref);
 	return (*this);
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {}
+
+void PresidentialPardonForm::execute(Bureaucrat const& executor) const throw(Bureaucrat::GradeTooLowException)
+{
+	beExecuteCheck(executor);
+	std::cout << getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}

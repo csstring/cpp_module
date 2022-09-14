@@ -6,10 +6,11 @@ class PresidentialPardonForm : public Form
 {
 public:
 	PresidentialPardonForm();
-	PresidentialPardonForm(Form target);
+	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(const PresidentialPardonForm& copy);
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& ref);
 	~PresidentialPardonForm();
+	void execute(Bureaucrat const& executor) const throw(Bureaucrat::GradeTooLowException);
 };
 
 #endif

@@ -1,14 +1,22 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main(void)
 {
-	Bureaucrat temp("schoe", 140);
+	Bureaucrat temp("schoe", 1);
 	ShrubberyCreationForm form("build construct");
+	PresidentialPardonForm pardonform("Rokn");
+	RobotomyRequestForm robotform("tayo_bus");
+
 
 	temp.signForm(form);
+	std::cout << form << std::endl;
 	temp.executeForm(form);
+	temp.executeForm(pardonform);
+	temp.executeForm(robotform);
 /*	Form form("build construct", 11, 1);
 
 	std::cout << form << std::endl;
