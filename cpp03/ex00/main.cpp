@@ -5,7 +5,6 @@ int main(void)
 {
 	ClapTrap a("schoe");
 	ClapTrap b("Songpyeon");
-
 	a.attack("Songpyeon");
 	b.takeDamage(a.getAttackDamage());
 	a.beRepaired(UINT32_MAX);

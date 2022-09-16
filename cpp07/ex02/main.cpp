@@ -1,8 +1,8 @@
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 
 #define MAX_VAL 750
-int main(int, char**)
+int main2(void)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
@@ -50,4 +50,10 @@ int main(int, char**)
     }
     delete [] mirror;//
     return 0;
+}
+
+int main(void)
+{
+    main2();
+    system("leaks a.out");
 }
