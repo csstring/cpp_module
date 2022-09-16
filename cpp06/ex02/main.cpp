@@ -7,9 +7,14 @@
 int main(void)
 {
 	Base base;
+	Base* baseTest = new Base;
 	Base* randomBase;
 
 	randomBase = base.generate();
-	std::cout << randomBase->getMyName() << std::endl;
+	base.identify(baseTest);
+	base.identify(*baseTest);
+	base.identify(randomBase);
+	base.identify(*randomBase);
+	delete randomBase;
 	return (0);
 }

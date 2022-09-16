@@ -1,6 +1,8 @@
 #include "C.hpp"
 
-C::C() : Base("C")
+C::C()
 {}
-virtual ~C()
-{}
+C::~C()
+{
+	std::cout << "C destructor called.." << std::endl;
+}
