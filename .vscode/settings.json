@@ -69,7 +69,9 @@
 		"filesystem": "cpp",
 		"__functional_03": "cpp",
 		"memory_resource": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"version": "cpp",
+		"list": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

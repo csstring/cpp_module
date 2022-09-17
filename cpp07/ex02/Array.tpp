@@ -1,4 +1,3 @@
-//#include "Array.hpp"
 #include <typeinfo>
 
 template <typename T>
