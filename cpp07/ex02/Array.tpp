@@ -1,5 +1,12 @@
 //#include "Array.hpp"
 #include <typeinfo>
+
+template <typename T>
+const char* Array<T>::outRangeExecption::what() const throw()
+{
+    return ("index is out of bounds!!");
+}
+
 template <typename T>
 Array<T>::Array() : length(0)
 {
@@ -40,8 +47,7 @@ template <typename T>
 T Array<T>::operator[](int index) const
 {
     if (index < 0 || static_cast<unsigned int>(index) >= length)
-        throw std::bad_cast();
-//        throw Array<T>::outRangeExecption();
+        throw Array<T>::outRangeExecption();
     return (arr[index]);
 }
 
@@ -49,8 +55,7 @@ template <typename T>
 T& Array<T>::operator[](int index)
 {
     if (index < 0 || static_cast<unsigned int>(index) >= length)
-            throw std::bad_cast();
-//        throw Array<T>::outRangeExecption();
+        throw Array<T>::outRangeExecption();
     return (arr[index]);
 }
 

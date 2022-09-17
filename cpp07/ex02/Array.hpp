@@ -22,8 +22,7 @@ public:
     class outRangeExecption : public std::exception
     {
     public:
-        virtual ~outRangeExecption () throw();
-        virtual const char* what() throw();
+       const char* what() const throw();
     };
 };
 #include "Array.tpp"
