@@ -7,7 +7,7 @@ Harl::Harl(void)
     harl[0].key.assign("DEBUG");
     harl[1].got_complain = &Harl::info;
     harl[1].key.assign("INFO");
-    harl[2].got_complain = &Harl::waring;
+    harl[2].got_complain = &Harl::warning;
     harl[2].key.assign("WARNING");
     harl[3].got_complain = &Harl::error;
     harl[3].key.assign("ERROR");
@@ -27,9 +27,9 @@ void   Harl::info(void)
     std::cout << "You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void    Harl::waring(void)
+void    Harl::warning(void)
 {
-    std::cout << "[ WARING ]" << std::endl;
+    std::cout << "[ WARNING ]" << std::endl;
     std::cout << "I think I deserve to have some extra bacon for free. "<< std::endl; 
     std::cout << "I’ve been coming for years whereas you started working here since last month." << std::endl;
 }

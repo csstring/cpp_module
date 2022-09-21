@@ -33,7 +33,7 @@ int	index_check(std::string temp)
 	return ((int)(temp[0] - 48));
 }
 
-void PhoneBook::_SEARCH_(void)
+int PhoneBook::_SEARCH_(void)
 {
 	std::string temp;
 	int	index;
@@ -41,11 +41,11 @@ void PhoneBook::_SEARCH_(void)
 	displayall();
 	while (!std::cin.rdstate())
 	{
-		std::cout << "prompt a index (index range : 0~7) >> " << std::endl;
+		std::cout << "prompt a index (index range : 0~7) >> ";
 		temp.clear();
 		std::getline (std::cin, temp);
 		if (std::cin.rdstate())
-			exit(1);
+			return (0);
 		index = index_check(temp);
 		if (index < 8 && index >= 0)
 		{
@@ -53,4 +53,5 @@ void PhoneBook::_SEARCH_(void)
 			break ;
 		}
 	}
+	return (1);
 }

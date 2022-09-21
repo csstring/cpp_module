@@ -13,7 +13,7 @@ class  Harl
 private:
     void    debug(void);
     void    info(void);
-    void    waring(void);
+    void    warning(void);
     void    error(void);
     t_harl harl[4];
 public:

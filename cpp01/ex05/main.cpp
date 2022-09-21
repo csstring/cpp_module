@@ -7,6 +7,6 @@ int main(void)
     temp.complain("ERROR");
     temp.complain("DEBUG");
     temp.complain("INFO");
-    temp.complain("wr");
+    temp.complain("WARNING");
     return (0);
 }

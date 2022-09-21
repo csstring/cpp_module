@@ -47,7 +47,7 @@ void	displaycontact2(std::string &type)
 
 void Contact:: displaycontact(int index)
 {
-	std::cout << "         " << std::to_string(index) << "|";
+	std::cout << "         " << index << "|";
 	displaycontact2(first_name);
 	displaycontact2(last_name);
 	displaycontact2(nick_name);

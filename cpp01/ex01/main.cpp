@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
-int main(void)
+void main2(void)
 {
-    Zombie  *heap_zombie1;
+	Zombie  *heap_zombie1;
     Zombie  temp;
 
     temp.announce();
@@ -10,5 +10,11 @@ int main(void)
     for (int i = 0; i < 5; i++)
         heap_zombie1[i].announce();
     delete []heap_zombie1;
+}
+
+int main(void)
+{
+    main2();
+	system("leaks zombie_test");
     return (0);
 }

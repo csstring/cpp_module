@@ -17,7 +17,7 @@ int main(void)
 		if (temp.compare("ADD") == 0)
 			cin_flag = book._ADD_();
 		else if (temp.compare("SEARCH") == 0)
-			book._SEARCH_();
+			cin_flag = book._SEARCH_();
 		else if (temp.compare("EXIT") == 0)
 			break ;
 	}
