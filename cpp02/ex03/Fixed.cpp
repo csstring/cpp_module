@@ -2,43 +2,34 @@
 #include <cmath>
 
 Fixed::Fixed(void) : rawValue(0)
-{
-//	std::cout << "Default constructor called" << std::endl;
-}
+{}
 
 Fixed::Fixed(const int val)
 {
-	rawValue = val << 8;
-//	std::cout << "Int constructor called" << std::endl;
+	rawValue = val << fractionalBits;
 }
 
 Fixed::Fixed(const float val)
 {
 	rawValue = roundf(val * (1 << fractionalBits));
-//	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-//	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Fixed& Fixed::operator=(const Fixed &ref)
 {
-//	std::cout << "Copy assignment operator called" << std::endl;
 	this->setRawBits(ref.rawValue);
 	return *this;
 }
 
 Fixed::~Fixed(void)
-{
-//	std::cout << "Destructor called" << std::endl;
-}
+{}
 
 int Fixed::getRawBits( void ) const
 {
-//	std::cout << "getRawBits member function called" << std::endl;
 	return (rawValue);
 }
 
@@ -49,12 +40,12 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)rawValue / (float)(1 << 8));
+	return ((float)rawValue / (float)(1 << fractionalBits));
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (rawValue >> 8);
+	return (rawValue >> fractionalBits);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& ref)
@@ -89,25 +80,25 @@ const Fixed Fixed::operator--(int)
 	return (temp);
 }
 
-Fixed Fixed::operator+(const Fixed &plus)
+Fixed Fixed::operator+(const Fixed &plus) const
 {
 	Fixed temp(this->toFloat() + plus.toFloat());
 	return (temp);
 }
 
-Fixed Fixed::operator-(const Fixed &minus)
+Fixed Fixed::operator-(const Fixed &minus) const
 {
 	Fixed temp(this->toFloat() - minus.toFloat());
 	return (temp);
 }
 
-Fixed Fixed::operator*(const Fixed &mult)
+Fixed Fixed::operator*(const Fixed &mult) const
 {
 	Fixed temp(this->toFloat() * mult.toFloat());
 	return (temp);
 }
 
-Fixed Fixed::operator/(const Fixed &divide)
+Fixed Fixed::operator/(const Fixed &divide) const
 {
 	if (divide.rawValue == 0)
 	{
@@ -118,40 +109,40 @@ Fixed Fixed::operator/(const Fixed &divide)
 	return (temp);
 }
 
-bool Fixed::operator>(const Fixed &cmp)
+bool Fixed::operator>(const Fixed &cmp) const
 {
 	if (rawValue > cmp.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator<(const Fixed &cmp)
+bool Fixed::operator<(const Fixed &cmp) const
 {
 	if (rawValue < cmp.getRawBits())
 		return (true);
 	return (false);
 }
-bool Fixed::operator>=(const Fixed &cmp)
+bool Fixed::operator>=(const Fixed &cmp) const
 {
 	if (rawValue >= cmp.getRawBits())
 		return (true);
 	return (false);
 }
-bool Fixed::operator<=(const Fixed &cmp)
+bool Fixed::operator<=(const Fixed &cmp) const
 {
 	if (rawValue <= cmp.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator==(const Fixed &cmp)
+bool Fixed::operator==(const Fixed &cmp) const
 {
 	if (rawValue == cmp.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator!=(const Fixed &cmp)
+bool Fixed::operator!=(const Fixed &cmp) const
 {
 	if (rawValue != cmp.getRawBits())
 		return (true);

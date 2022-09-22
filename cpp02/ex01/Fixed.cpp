@@ -8,7 +8,7 @@ Fixed::Fixed(void) : rawValue(0)
 
 Fixed::Fixed(const int val)
 {
-	rawValue = val << 8;
+	rawValue = val << fractionalBits;
 	std::cout << "Int constructor called" << std::endl;
 }
 
@@ -49,12 +49,12 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-	return ((float)rawValue / (1 << 8));
+	return ((float)rawValue / (1 << fractionalBits));
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (rawValue >> 8);
+	return (rawValue >> fractionalBits);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& ref)
