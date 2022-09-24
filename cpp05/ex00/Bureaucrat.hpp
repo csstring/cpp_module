@@ -16,7 +16,7 @@ public:
 	Bureaucrat& operator=(const Bureaucrat& ref);
 	~Bureaucrat();
 	std::string getName() const;
-	int	getgrade() const;
+	int	getGrade() const;
 	void incrementGrade() throw(GradeTooHighException);
 	void decrementGrade() throw(GradeTooLowException);
 	class GradeTooHighException : public std::exception

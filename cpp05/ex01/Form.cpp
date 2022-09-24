@@ -2,13 +2,11 @@
 
 Form::Form() : name("nonexit"), indicateSigned(false), requireSign(0), executeSign(0)
 {}
-
 Form::Form(std::string name, const int requireSign, const int executeSign) : name(name), indicateSigned(false), requireSign(requireSign), executeSign(executeSign)
 {}
-Form::Form(const Form& copy) : requireSign(0), executeSign(0)
-{
-    *this = copy;
-}
+Form::Form(const Form& copy) : name(copy.getName()), indicateSigned(copy.getIndicateSigned()), requireSign(copy.getRequireSign()), executeSign(copy.getExecuteSign())
+{}
+
 Form& Form::operator=(const Form& ref)
 {
     const_cast<std::string&>(name).assign(ref.getName());
@@ -27,7 +25,7 @@ Form::~Form()
 
 void Form::beSigned(Bureaucrat& ref) throw(Bureaucrat::GradeTooLowException)
 {
-    if (ref.getgrade() > requireSign)
+    if (ref.getGrade() > requireSign)
         throw (Bureaucrat::GradeTooLowException());
     indicateSigned = true;
 }

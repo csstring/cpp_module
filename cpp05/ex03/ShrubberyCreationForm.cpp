@@ -61,7 +61,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const throw(InOu
 	o_file.open(temp, std::fstream::out | std::fstream::trunc);
 	if (o_file.fail())
 		throw (InOutFileException());
-	std::cout << executor.getName() <<" executed " << getName() << std::endl;
 	o_file << asciiTree << std::endl;
 	o_file.close();
 }

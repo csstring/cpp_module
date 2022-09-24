@@ -1,9 +1,9 @@
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
-	setType("Dog");
+	this->type.assign("Dog");
 	std::cout << "Dog construtor called.." << std::endl;
 }
 
@@ -14,7 +14,7 @@ Dog::Dog(const Dog &copy)
 
 Dog& Dog::operator=(const Dog &ref)
 {
-	setType(ref.getType());
+	this->type.assign(ref.getType());
 	return (*this);
 }
 

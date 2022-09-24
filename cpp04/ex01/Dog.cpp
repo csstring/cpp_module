@@ -1,11 +1,11 @@
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
-	setType("Dog");
-	brain = new Brain();
 	std::cout << "Dog construtor called.." << std::endl;
+	this->type.assign("Dog");
+	brain = new Brain();
 }
 
 Dog::Dog(const Dog &copy)
@@ -15,15 +15,15 @@ Dog::Dog(const Dog &copy)
 
 Dog& Dog::operator=(const Dog &ref)
 {
-	setType(ref.getType());
+	this->type.assign(ref.getType());
 	*this->brain = *ref.getBrain();
 	return (*this);
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog Destructor called.." << std::endl;
 	delete brain;
+	std::cout << "Dog Destructor called.." << std::endl;
 }
 
 void Dog::makeSound() const

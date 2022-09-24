@@ -3,7 +3,7 @@
 
 Animal::Animal()
 {
-	setType("meta_mong");
+	this->type.assign("meta_mong");
 	std::cout << "Animal construtor called.." << std::endl;
 }
 
@@ -14,7 +14,7 @@ Animal::Animal(const Animal &copy)
 
 Animal& Animal::operator=(const Animal &ref)
 {
-	this->type.assign(ref.type);
+	this->type.assign(ref.getType());
 	return (*this);
 }
 
@@ -26,11 +26,6 @@ Animal::~Animal()
 void Animal::makeSound() const
 {
 	std::cout << "..................." << std::endl;
-}
-
-void	Animal::setType(std::string name)
-{
-	type.assign(name);
 }
 
 std::string	Animal::getType(void) const

@@ -1,11 +1,11 @@
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
-	setType("Cat");
-	brain = new Brain();
 	std::cout << "Cat construtor called.." << std::endl;
+	this->type.assign("Cat");
+	brain = new Brain();
 }
 
 Cat::Cat(const Cat &copy)
@@ -15,15 +15,15 @@ Cat::Cat(const Cat &copy)
 
 Cat& Cat::operator=(const Cat &ref)
 {
-	setType(ref.getType());
+	this->type.assign(ref.getType());
 	*this->brain = *ref.getBrain();
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat Destructor called.." << std::endl;
 	delete brain;
+	std::cout << "Cat Destructor called.." << std::endl;
 }
 
 void Cat::makeSound() const

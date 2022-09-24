@@ -1,9 +1,9 @@
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
-	setType("Cat");
+	this->type.assign("Cat");
 	std::cout << "Cat construtor called.." << std::endl;
 }
 
@@ -14,7 +14,7 @@ Cat::Cat(const Cat &copy)
 
 Cat& Cat::operator=(const Cat &ref)
 {
-	setType(ref.getType());
+	this->type.assign(ref.getType());
 	return (*this);
 }
 

@@ -3,7 +3,7 @@
 
 WrongAnimal::WrongAnimal()
 {
-	setType("Wrong meta_mong");
+	this->type.assign("Wrong meta_mong");
 	std::cout << "WrongAnimal construtor called.." << std::endl;
 }
 
@@ -14,7 +14,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &ref)
 {
-	this->type.assign(ref.type);
+	this->type.assign(ref.getType());
 	return (*this);
 }
 
@@ -26,11 +26,6 @@ WrongAnimal::~WrongAnimal()
 void WrongAnimal::makeSound() const
 {
 	std::cout << "..................." << std::endl;
-}
-
-void	WrongAnimal::setType(std::string name)
-{
-	type.assign(name);
 }
 
 std::string	WrongAnimal::getType(void) const

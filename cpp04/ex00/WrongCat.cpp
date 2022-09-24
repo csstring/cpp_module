@@ -1,9 +1,9 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	setType("WrongCat");
+	this->type.assign("WrongCat");
 	std::cout << "WrongCat construtor called.." << std::endl;
 }
 
@@ -14,7 +14,7 @@ WrongCat::WrongCat(const WrongCat &copy)
 
 WrongCat& WrongCat::operator=(const WrongCat &ref)
 {
-	setType(ref.getType());
+	this->type.assign(ref.getType());
 	return (*this);
 }
 

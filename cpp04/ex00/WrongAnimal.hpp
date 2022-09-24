@@ -12,7 +12,6 @@ public:
 	WrongAnimal& operator=(const WrongAnimal &ref);
 	~WrongAnimal();
 	void makeSound() const;
-	void setType(std::string name);
 	std::string getType() const;
 };
 

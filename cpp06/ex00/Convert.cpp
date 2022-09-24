@@ -1,6 +1,5 @@
 #include "Convert.hpp"
 #include <iostream>
-#include <cctype>
 
 Convert::Convert() : doubleVal(0), stringVal("")
 {}
@@ -54,7 +53,7 @@ std::string Convert::getStringVal() const
 
 void Convert::intPrint()
 {
-	if (!stringVal.compare("nan") || isinf(doubleVal))
+	if (!stringVal.compare("nan") || doubleVal > INT32_MAX || doubleVal < INT32_MIN)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: "<< static_cast<int>(doubleVal) <<std::endl;
@@ -76,7 +75,7 @@ void Convert::floatPrint()
 }
 void Convert::charPrint()
 {
-	if (!stringVal.compare("nan") || isinf(doubleVal))
+	if (!stringVal.compare("nan"))
 		std::cout << "char: impossible" << std::endl;
 	else if (!isprint(static_cast<int>(doubleVal)))
 		std::cout << "char: Non displayable" << std::endl;

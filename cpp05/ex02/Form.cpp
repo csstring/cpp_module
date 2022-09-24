@@ -5,10 +5,8 @@ Form::Form() : name("nonexit"), indicateSigned(false), requireSign(0), executeSi
 {}
 Form::Form(std::string name, const int requireSign, const int executeSign) : name(name), indicateSigned(false), requireSign(requireSign), executeSign(executeSign)
 {}
-Form::Form(const Form& copy) : requireSign(0), executeSign(0)
-{
-    *this = copy;
-}
+Form::Form(const Form& copy) : name(copy.getName()), indicateSigned(copy.getIndicateSigned()), requireSign(copy.getRequireSign()), executeSign(copy.getExecuteSign())
+{}
 Form& Form::operator=(const Form& ref)
 {
     const_cast<std::string&>(name).assign(ref.getName());
@@ -51,7 +49,7 @@ std::ostream& operator<<(std::ostream& os, const Form& ref)
 
 void Form::beExecuteCheck(const Bureaucrat& executor) const throw(Bureaucrat::GradeTooLowException)
 {
-	if (executor.getgrade() > executeSign)
+	if (executor.getGrade() > executeSign)
 	{
 		std::cout << executor.getName() << " couldn't execute " << this->name << " because ";
 		throw (Bureaucrat::GradeTooLowException());
@@ -60,7 +58,7 @@ void Form::beExecuteCheck(const Bureaucrat& executor) const throw(Bureaucrat::Gr
 
 void Form::beSigned(Bureaucrat& ref) throw(Bureaucrat::GradeTooLowException)
 {
-    if (ref.getgrade() > requireSign)
+    if (ref.getGrade() > requireSign)
         throw (Bureaucrat::GradeTooLowException());
     this->indicateSigned = true;
 }
