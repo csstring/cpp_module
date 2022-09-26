@@ -75,7 +75,7 @@ void Convert::floatPrint()
 }
 void Convert::charPrint()
 {
-	if (!stringVal.compare("nan"))
+	if (!stringVal.compare("nan") || static_cast<int>(doubleVal) > 127 || static_cast<int>(doubleVal) < -128)
 		std::cout << "char: impossible" << std::endl;
 	else if (!isprint(static_cast<int>(doubleVal)))
 		std::cout << "char: Non displayable" << std::endl;
