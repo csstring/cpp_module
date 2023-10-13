@@ -10,4 +10,5 @@ typename T::iterator easyfind(T& container, int index)
     else
         std::cout << "container have : " << *it << std::endl;
     return (it);
+    std::cout << "chec";
 }
